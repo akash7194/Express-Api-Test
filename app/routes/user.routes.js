@@ -20,6 +20,7 @@ module.exports = app => {
 
     router1.post("/", task.create);
     router1.get("/", task.findAll);
+    router1.patch("/updateStatus",task.updateTaskStatus)
 
     app.use('/api/task', router1);
     app.use('/api/user', router);

@@ -69,7 +69,7 @@ exports.findAll = (req, res) => {
 };
 
 // Find a  user with an specific gender
-module.exports.findGenderBased = (req, res) => {
+module.exports.findGenderBased = async(req, res) => {
     console.log(req);
     Users.find({ Gender: req.query.Gender })
         .then(data => {
@@ -85,7 +85,7 @@ module.exports.findGenderBased = (req, res) => {
 };
 
 // Update a user by the id in the request
-module.exports.updateUser = (req, res) => {
+module.exports.updateUser = async(req, res) => {
 
     let fieldToUpdate = {
         FullName: req.body.FullName,
@@ -133,7 +133,7 @@ module.exports.updateUser = (req, res) => {
 };
 
 // Delete a user with the specified id in the request
-module.exports.delete = (req, res) => {
+module.exports.delete = async(req, res) => {
     Users.deleteOne({ _id: req.body.id })
         .then(data => {
             res.send({
@@ -150,7 +150,7 @@ module.exports.delete = (req, res) => {
 };
 
 // Delete all user from the database.
-module.exports.deleteAll = (req, res) => {
+module.exports.deleteAll = async(req, res) => {
 
 };
 

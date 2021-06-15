@@ -3,7 +3,7 @@
 const Task = require("../model/task.model");
 
 // Create and Save a new User
-exports.create = (req, res) => {
+exports.create = async(req, res) => {
     console.log(req);
     if (!req.body) {
         res.status(400).send({ message: "Content can not be empty!" });
@@ -33,7 +33,7 @@ exports.create = (req, res) => {
         });
 
 };
-exports.findAll = (req, res) => {
+exports.findAll = async(req, res) => {
    
     Task.find({})
         .then(data => {
@@ -46,6 +46,38 @@ exports.findAll = (req, res) => {
             });
         });
 
+ 
+
+
+};
+
+exports.updateTaskStatus = async(req, res) => {
+   
+    Task.updateOne({ _id: req.body.id }, {
+       
+        // FullName: req.body.FullName,
+        // Gender: req.body.Gender,
+        // State: req.body.State,
+        // Password: req.body.Password,
+         Status: req.body.Status,
+        // Role: req.body.Role
+
+    }, { //options
+        omitUndefined: false,
+        upsert: true
+    })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+
+
+    //Task.findById(req.body.id)
  
 
 

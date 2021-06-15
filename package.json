@@ -4,7 +4,7 @@
   "description": "This is a test project",
   "main": "server.js",
   "scripts": {
-    "test": "script.test"
+    "test": "nodemon server.js"
   },
   "author": "Akash",
   "license": "ISC",
@@ -13,6 +13,8 @@
     "express": "^4.17.1",
     "mongo": "^0.1.0",
     "mongodb": "^3.6.9",
-    "mongoose": "^5.12.13"
+    "mongoose": "^5.12.13",
+    "nodemon": "^2.0.7",
+    "save-dev": "0.0.1-security"
   }
 }
