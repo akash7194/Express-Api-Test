@@ -19,6 +19,7 @@ module.exports = app => {
     var router1 = require("express").Router();
 
     router1.post("/", task.create);
+    router1.get("/", task.findAll);
 
     app.use('/api/task', router1);
     app.use('/api/user', router);

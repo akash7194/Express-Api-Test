@@ -17,6 +17,6 @@ const schema = mongoose.Schema(
 
 //return Task;
 module.exports = mongoose.model(
-    "taskMap",
+    "taskmaps",
     schema
 );
