@@ -25,20 +25,20 @@
 const mongoose = require('mongoose');
 
 
-  const schema=mongoose.Schema(
-      {
-        FullName: String,
-        Gender: String,
-        State: String,
-        Password: String,
-        Role: String,
-        Status: Boolean
-      },
-      { timestamps: true }
-    );
-  
-    
-  module.exports =mongoose.model(
-    "users",
-    schema
+const schema = mongoose.Schema(
+  {
+    FullName: String,
+    Gender: String,
+    State: String,
+    Password: String,
+    Role: String,
+    Status: Boolean
+  },
+  { timestamps: true }
+);
+
+
+module.exports = mongoose.model(
+  "users",
+  schema
 );

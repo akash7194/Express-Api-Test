@@ -2,20 +2,20 @@
 const mongoose = require('mongoose');
 
 
-    const schema=mongoose.Schema(
-        {
-            TaskName: String,
-            Taskid: String,
-            Description: String,
+const schema = mongoose.Schema(
+    {
+        TaskName: String,
+        Taskid: String,
+        Description: String,
 
-            assingedTo: String,
-            Status: Number
-        },
-        { timestamps: true }
-    );
-    
+        assingedTo: String,
+        Status: Number
+    },
+    { timestamps: true }
+);
 
-    //return Task;
+
+//return Task;
 module.exports = mongoose.model(
     "taskMap",
     schema
