@@ -3,6 +3,7 @@ const Users = require("../model/user.model");
 
 // Create and Save a new User
 exports.create = (req, res) => {
+    try{
     console.log(req);
     if (!req.body) {
         res.status(400).send({ message: "Content can not be empty!" });
@@ -30,7 +31,11 @@ exports.create = (req, res) => {
                     err.message || "Some error occurred while creating the user."
             });
         });
-
+    }
+    catch(err)
+    {
+        console.log("error"+err);
+    }
 };
 
 
@@ -38,7 +43,7 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
     //const username = req.query.FullName;
     // var condition = username ? {} : {};
-
+try{
     Users.find({})
         .then(data => {
             res.send(data);
@@ -49,6 +54,11 @@ exports.findAll = (req, res) => {
                     err.message || "Some error occurred while retrieving users."
             });
         });
+    }
+    catch(err)
+    {
+        console.log("error"+err);
+    }
 
     // db.find({}, function(err, users) {
     //     var userMap = {};
@@ -70,6 +80,7 @@ exports.findAll = (req, res) => {
 
 // Find a  user with an specific gender
 module.exports.findGenderBased = async(req, res) => {
+    try{
     console.log(req);
     Users.find({ Gender: req.query.Gender })
         .then(data => {
@@ -81,12 +92,17 @@ module.exports.findGenderBased = async(req, res) => {
                     err.message || "Some error occurred while retrieving users."
             });
         });
+    }
+    catch(err)
+    {
+        console.log("error"+err);
+    }
 
 };
 
 // Update a user by the id in the request
 module.exports.updateUser = async(req, res) => {
-
+try {
     let fieldToUpdate = {
         FullName: req.body.FullName,
         Gender: req.body.Gender,
@@ -129,11 +145,16 @@ module.exports.updateUser = async(req, res) => {
                     err.message || "Some error occurred while retrieving users."
             });
         });
-
+    }
+    catch(err)
+    {
+        console.log("error"+err);
+    }
 };
 
 // Delete a user with the specified id in the request
 module.exports.delete = async(req, res) => {
+   try{
     Users.deleteOne({ _id: req.body.id })
         .then(data => {
             res.send({
@@ -147,6 +168,11 @@ module.exports.delete = async(req, res) => {
                     err.message || "Some error occurred while retrieving users."
             });
         });
+    }
+    catch(err)
+    {
+        console.log("error"+err);
+    }
 };
 
 // Delete all user from the database.

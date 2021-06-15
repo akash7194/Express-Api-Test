@@ -4,6 +4,7 @@ const Task = require("../model/task.model");
 
 // Create and Save a new User
 exports.create = async(req, res) => {
+    try{
     console.log(req);
     if (!req.body) {
         res.status(400).send({ message: "Content can not be empty!" });
@@ -31,10 +32,15 @@ exports.create = async(req, res) => {
                     err.message || "Some error occurred while creating the user."
             });
         });
+    }
+    catch(err)
+    {
+        console.log("error"+err);
+    }
 
 };
 exports.findAll = async(req, res) => {
-   
+   try{
     Task.find({})
         .then(data => {
             res.send(data);
@@ -46,13 +52,17 @@ exports.findAll = async(req, res) => {
             });
         });
 
- 
+    }
+    catch(err)
+    {
+        console.log("error"+err);
+    }
 
 
 };
 
 exports.updateTaskStatus = async(req, res) => {
-   
+   try{
     Task.updateOne({ _id: req.body.id }, {
        
         // FullName: req.body.FullName,
@@ -75,7 +85,11 @@ exports.updateTaskStatus = async(req, res) => {
                     err.message || "Some error occurred while retrieving users."
             });
         });
-
+    }
+    catch(err)
+    {
+        console.log("error"+err);
+    }
 
     //Task.findById(req.body.id)
  
