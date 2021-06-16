@@ -11,7 +11,7 @@
 //             console.log(dbc.db('testusercollection').collection('users').find({}));
 //             this.db=dbc;
 //         })
-        
+
 //         console.log(this.db.db('testusercollection'));
 //         return this.db
 
@@ -23,7 +23,7 @@
 // Connection.url = 'mongodb://localhost:27017/testusercollection'
 // Connection.options = {
 //     bufferMaxEntries:   0,
-    
+
 //     useNewUrlParser:    true,
 //     useUnifiedTopology: true,
 // }
